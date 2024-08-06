@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: taco-cloud
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tacocloud
+    username: postgres
+    password: 159753
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # Может быть: create, create-drop, validate, или none
+    show-sql: true  # Показывать SQL-запросы в логах
+    properties:
+      hibernate:
+        format_sql: true  # Форматировать SQL-запросы для удобства чтения
+  sql:
+    init:
+      mode: always  # Выполнять инициализацию схемы при запуске
