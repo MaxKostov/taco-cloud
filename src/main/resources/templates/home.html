@@ -39,6 +39,19 @@
         a:hover {
             background-color: #e64a19;
         }
+        .logout-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            color: #fff;
+            background-color: #757575;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .logout-button:hover {
+            background-color: #616161;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +60,10 @@
     <img th:src="@{/images/tacos.jpg}" alt="Tacos">
     <br>
     <a href="/design">Create an Order!</a>
+    <br>
+    <form method="POST" th:action="@{/logout}" style="display: inline;">
+        <input type="submit" value="Logout" class="logout-button"/>
+    </form>
 </div>
 </body>
 </html>

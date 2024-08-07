@@ -61,12 +61,18 @@
             margin-top: 10px;
             display: block;
         }
+        .logout-button {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 <h1>Design Your Taco!</h1>
 <img th:src="@{/images/tacos.jpg}" alt="Taco Image"/>
 <form method="POST" th:object="${taco}">
+
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+
     <div class="grid">
         <div class="ingredient-group" id="wraps">
             <h3>Designate Your Wrap:</h3>
@@ -111,6 +117,10 @@
         <button type="submit">Submit Your Taco</button>
     </div>
     <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</span>
+</form>
+
+<form method="POST" th:action="@{/logout}" class="logout-button">
+    <input type="submit" value="Logout"/>
 </form>
 </body>
 </html>

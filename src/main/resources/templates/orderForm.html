@@ -77,10 +77,26 @@
         #another:hover {
             background-color: #e64a19;
         }
+        .logout-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f44336;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 <body>
 <form method="POST" th:action="@{/orders}" th:object="${tacoOrder}">
+
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+
     <h1>Order Your Taco Creations!</h1>
     <img th:src="@{/images/tacos.jpg}" alt="Tacos Image"/>
     <h3 th:if="${!#fields.hasErrors('*')}">Your Tacos in This Order:</h3>
@@ -126,6 +142,9 @@
     <span class="validationError" th:if="${#fields.hasErrors('ccCVV')}" th:errors="*{ccCVV}">CC CVV Error</span>
 
     <input type="submit" value="Submit Order"/>
+    <form method="POST" th:action="@{/logout}" style="display: inline;">
+        <input type="submit" value="Logout" class="logout-btn"/>
+    </form>
 </form>
 </body>
 </html>

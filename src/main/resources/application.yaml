@@ -8,11 +8,19 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update # Может быть: create, create-drop, validate, или none
-    show-sql: true  # Показывать SQL-запросы в логах
+      ddl-auto: update
+    show-sql: true
     properties:
       hibernate:
-        format_sql: true  # Форматировать SQL-запросы для удобства чтения
+        format_sql: true
   sql:
     init:
-      mode: always  # Выполнять инициализацию схемы при запуске
+      mode: always
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: <facebook client id>
+            client-secret: <facebook client secret>
+            scope: email, public_profile
