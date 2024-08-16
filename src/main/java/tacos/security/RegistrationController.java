@@ -11,7 +11,6 @@ import tacos.UserRoles;
 import tacos.data.RoleRepository;
 import tacos.data.UserRepository;
 
-import java.util.Set;
 
 @Controller
 @RequestMapping("/register")

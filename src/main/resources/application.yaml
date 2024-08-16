@@ -24,3 +24,6 @@ spring:
             client-id: <facebook client id>
             client-secret: <facebook client secret>
             scope: email, public_profile
+  data:
+    rest:
+      base-path: /data-api
